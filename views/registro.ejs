@@ -12,7 +12,7 @@
     <img src="img/GYMNOW.png">
       <h2>Ingresa tus datos</h2>
 
-      <form action="inicio.html" >
+      <form action="/registro" method="POST">
         <label for="nombre">Nombre</label>
         <input type="nombre" id="nombre" name="nombre" required />
 
@@ -21,12 +21,12 @@
 
         <label for="start">Fecha de Nacimiento:</label>
         <input
-        type="date"
-        id="start"
-        name="trip-start"
-        value="2025-06-02"
-        min="1950-01-01"
-        max="2015-01-01" />
+          type="date"
+          id="start"
+          name="fecha_nacimiento" 
+          value="2005-01-01"
+          min="1950-01-01"
+          max="2015-01-01" />
 
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" required />
