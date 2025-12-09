@@ -1,147 +1,155 @@
-
+/* =========================================
+   RESETEO BÁSICO
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    
+    /* SOLUCIÓN 1: Agregamos el color de fondo oscuro */
+    background-color: #001f30; 
+    /* Si tienes una imagen de fondo, descomenta la siguiente línea */
+    /* background-image: url('../img/tu-fondo.jpg'); */
     background-size: cover;
-    backdrop-filter: blur(15px);
-  }
-  
- 
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 
-  
-  /* Header */
-  .container {
+/* =========================================
+   HEADER (Estilos del menú)
+   ========================================= */
+/* Nota: Asegúrate que esta clase .container no choque con bootstrap si lo usas */
+.container {
     display: flex;
     background: #00263b;
     color: #fff;
+    align-items: center; /* Centra verticalmente el logo y links */
+    justify-content: space-between; /* Separa logo a la izq y links a la der */
+    padding: 0 50px; /* Un poco de aire a los lados */
+}
 
-  }
-  .logo{
-    justify-content: center;
-    padding-left: 50px;
-    max-width: 175px;
-  }
+.logo {
+    max-width: 150px;
+    padding: 10px 0;
+}
 
-  .links{
-    display: flex;
-    align-items: end;
-  }
-
-  .links  h1 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
- .links ul {
-    
+.links ul {
     list-style: none;
     display: flex;
-    justify-content: right;
-    align-items: center;
     gap: 20px;
-  }
-  
-  .links ul li a {
+    margin: 0; /* Quitar margen por defecto de ul */
+}
+
+.links ul li a {
     color: #fff;
     text-decoration: none;
     padding: 8px 16px;
-  }
-  
-  .links ul li a:hover,
-  .links ul li a.active {
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.links ul li a:hover,
+.links ul li a.active {
     background: #004768;
     border-radius: 5px;
-  }
- 
-  .hero {
+}
+
+/* =========================================
+   HERO SECTION (Lo que estaba roto)
+   ========================================= */
+.hero {
     display: flex;
     flex-direction: column;
-    color: white;
-    text-align: center;
-    padding: 10% 0px ;
-  }
+    justify-content: center;
+    min-height: 80vh; /* Ocupa buena parte de la pantalla */
+    padding: 2rem 0;
+    overflow: hidden; /* Evita scrool horizontal si algo se sale */
+}
 
-   .container1 {
-    
+.container1 {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Texto al lado de la imagen */
+    align-items: center; /* Centrados verticalmente */
+    justify-content: center;
     width: 90%;
-    max-width: 2000px;
+    max-width: 1400px; /* Limitamos el ancho máximo para que no se estire demasiado */
     margin: auto;
-  }
-  
-  .container1 h2 {
-    position: absolute;
-    font-family: 'Bebas Neue';
+    position: relative; /* Necesario para contexto */
+    flex-wrap: wrap; /* Si la pantalla es chica, que baje la imagen */
+}
+
+.container1 h2 {
+    /* SOLUCIÓN 2: Quitamos position: absolute */
+    position: relative; 
+    font-family: 'Bebas Neue', sans-serif; /* Fallback por si no carga la fuente */
     color: #ff6f6f;
-    filter: invert(0);
-    mix-blend-mode:screen;
-    font-size: 200px;
-    line-height: 80%;
-    top: 45%;  
-    left: 45%;  
-    transform: translate(-50%, -50%);
+    /* SOLUCIÓN 3: Tamaño más controlado */
+    font-size: 8rem; /* Grande, pero no 200px */
+    line-height: 1;
     text-align: left;
-  }
+    flex: 1; /* Ocupa el espacio disponible a la izquierda */
+    z-index: 10; /* Asegura que esté por encima */
+    min-width: 300px; /* Para que no se aplaste */
+}
 
-  .imgtitulo {
-    
-    max-width: 625px;
-    max-height:fit-content;
-    margin-right: 5%;
-    margin-left: 55%;
-  }
+.imgtitulo {
+    /* SOLUCIÓN 4: Quitamos márgenes extraños */
+    margin: 0;
+    max-width: 500px;
+    width: 100%; /* Responsive */
+    height: auto;
+    object-fit: contain;
+    flex: 1; /* Ocupa el espacio disponible a la derecha */
+}
 
-   .container2 {
+/* =========================================
+   SECCIÓN INFERIOR (Botón y texto)
+   ========================================= */
+.container2 {
     background-color: #000000;
-    flex-direction: row;
-    max-width: 100%;
-    max-height: fit-content;
-    
-    padding: 7%;
-    
-    
-  }
-  
-  .container2 p {
-    font-size: 1.6rem;
-    text-align: left;
+    display: flex;
+    flex-direction: column; /* Texto arriba, botón abajo (o ajusta a row si prefieres) */
+    align-items: center;
+    padding: 3rem;
+    text-align: center;
+    margin-top: auto; /* Empuja esto hacia abajo */
+}
+
+.container2 p {
+    font-size: 1.4rem;
     color: #ffffff;
     margin-bottom: 30px;
-  }
-  
-  .btn {
+    max-width: 800px;
+}
+
+.btn {
+    background-color: #ff1313; /* Color de fondo visible */
     color: #ffffff;
-    padding: 12px 25px;
+    padding: 15px 40px;
     border: none;
     border-radius: 5px;
-    font-family: 'Bebas Neue';
-    font-size: 30PX;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
     text-decoration: none;
-  }
-  
-  .btn:hover {
-    font-family: 'Bebas Neue';
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn:hover {
     background: #ffffff;
     color: #ff1313;
-  }
-  
- 
-  footer {
-    background: linear-gradient(#ff131300, #153855);
+    transform: scale(1.05); /* Efecto pequeño al pasar el mouse */
+}
+
+footer {
+    background: #153855; /* Color sólido para evitar errores de gradiente */
     color: #fff;
     font-weight: bold;
-    text-align: center;
-    padding: 15px 0;
-    margin-bottom: 0%;
-
-  }
-  
+}
